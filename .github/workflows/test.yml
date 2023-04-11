@@ -40,5 +40,5 @@ jobs:
 
       - name: Run Forge tests (testIntegerOverUnderflow)
         run: |
-          forge test -vvv -match testIntegerOverUnderflow
+          forge test -vvv --match testIntegerOverUnderflow
         id: test_integerouflow
